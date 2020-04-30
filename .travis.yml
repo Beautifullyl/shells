@@ -8,7 +8,6 @@ script:
   - bash test.sh
   - ls -l
   - pwd
-  - cat file
 
 notifications:
   email:
