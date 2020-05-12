@@ -1,4 +1,4 @@
-#!usr/bin/env bash
+#!/usr/bin/env bash
 
 #有一个参数，是指定IP
 echo "处理中。。。。。。"
