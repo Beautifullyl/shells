@@ -8,7 +8,7 @@ printf "统计访问来源主机TOP 100和分别对应出现的总次数" > web_
 #3.-n 按照数值大小排序 -r表示逆序
 #4.head -n指定显示头部内容的行数
 #5.最后写入文件
-{ echo web_log.tsv|awk -F'\t' '{print $1}'|sort|uniq -c|sort -nr|head -n 100;} >> web_cal_data.txt 
+{ echo web_log.tsv|awk -F'\t' '{print $1}'|sort|uniq -c|sort -nr|head -n 100 } >> web_cal_data.txt 
 printf "统计访问来源主机TOP 100 IP和分别对应出现的总次数">> web_cal_data.txt
 #grep使用正则表达式搜索文本，^表示以后面开头的元素，[]表示范围
 { echo web_log.tsv|awk -F'\t' '{print $1}'|grep -E "^[0-9]"|sort|uniq -c|sort -nr|head -n 100; } >> web_cal_data.txt
@@ -37,6 +37,6 @@ if [ "$url" = "-h" ]||[ "$url" = "-help" ];then
 	echo '分别统计不同4XX状态码对应的TOP 10 URL和对应出现的总次数'
 	echo '给定url 指定url,给定URL输出TOP 100访问来源主机 '
 else 
-	echo web_log.tsv|awk -F'\t' '{if("$5"=="'$url'")print "$1","$5"}'|sort|uniq -c|sort -nr|head -n 100 >> web_cal_data.txt
+	echo web_log.tsv|awk -F'\t' '{if("$5"=="'"$url"'")print "$1","$5"}'|sort|uniq -c|sort -nr|head -n 100 >> web_cal_data.txt
 fi
 echo "处理完成"
