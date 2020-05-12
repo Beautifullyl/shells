@@ -25,7 +25,7 @@ cat web_log.tsv|awk -F'\t' '{if($6=="404")print $5,$6}'|sort|uniq -c|sort -nr|he
 printf "给定URL输出TOP 100访问来源主机">> web_cal_data.txt
 #url参数
 url=$1
-if [ url = "-h"|| url = "-help" ]
+if [ url = "-h"|| url = "-help" ];then
 	echo '-------------------------------------------'
         echo '-- 本脚本用于统计 web_log.tsv 中以下数据 --'
 	echo '-------------------------------------------'
