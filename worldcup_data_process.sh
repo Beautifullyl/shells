@@ -66,7 +66,7 @@ function num_by_position {
 	for((i=0;i<${#array[@]};i++))
 	{
 	  temp=${member[${array[$i]}]}
-          printf "%-10s :%10d %15.8f %% \n" ${array[$i]} "$temp" "$(echo "scale=10; $temp/$count*100" | bc -l| awk '{printf "%f", $0}')"
+          printf "%-10s :%10d %15.8f %% \n" "${array[$i]}" "$temp" "$(echo "scale=10; $temp/$count*100" | bc -l| awk '{printf "%f", $0}')"
   }
 
 }
