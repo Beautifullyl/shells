@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-dir=`pwd`
-echo $dir
+dir=$(pwd)
 
 # 帮助
 function helps {
@@ -18,16 +17,16 @@ function helps {
 function compress {
 	  quality=$1
 	  #``返回执行后的结果
-	  for file in $dir/*
+	  for file in "$dir"/*
           do
 	  # ##.表示删掉最后一个.及其左边的字符串,即jpg
           extension=${file##*.}
-	    if [ $extension == "jpg" ];then
-              echo $file
+	    if [ "$extension" == "jpg" ];then
+              echo "$file"
 	      echo "compressing........";
 	      out=$dir/compress_$file
 	      #质量压缩语句
-	      convert -quality $quality"%" $file $out
+	      convert -quality "$quality""%" "$file" "$out"
             fi
           done
 }
@@ -35,15 +34,15 @@ function compress {
 # 保持原始宽高比的前提下压缩分辨率
 function resize {
 	  size=$1
-	  for file in $dir/*
+	  for file in "$dir"/*
           do
 	  extension=${file##*.}
-	     if [ $extension == "jpg" ] || [ $extension == "png" ] || [ $extension == "svg" ];then
+	     if [ "$extension" == "jpg" ] || [ "$extension" == "png" ] || [ "$extension" == "svg" ];then
 	     out=$dir/resize_$file
 	     echo $file
 	     echo "resizing......";
              #压缩分辨率语句
-	     convert -sample $size"%x"$size"%" $file $out
+	     convert -sample "$size""%x""$size""%" "$file" "$out"
 	     fi
 	  done
 
@@ -54,31 +53,31 @@ function add_text {
 	  color=$1
 	  size=$2
 	  text=$3
-	  for file in $dir/*
+	  for file in "$dir"/*
 	  do
 	  extension=${file##*.}
-	    if [ $extension == "jpg" ] || [ $extension == "png" ] || [ $extension == "svg" ];then
-	     echo $file
+	    if [ "$extension" == "jpg" ] || [ "$extension" == "png" ] || [ "$extension" == "svg" ];then
+	     echo "$file"
 	     echo "drawing......";
 	     # %.*表示删掉最后一个 .及其右边的字符串
 	     out=$dir/draw_${file%.*}.${file##*.}
 	     #color字体颜色 size字体大小 text文本内容
-	     convert -fill $color -pointsize $size -draw "text 15,50 '$text'" $file $out
+	     convert -fill "$color" -pointsize "$size" -draw "text 15,50 '$text'" "$file" "$out"
 	    fi
 	  done
 }
 
 # 图像转为JPEG格式
 function converting {
-  for file in $dir/*
+  for file in "$dir"/*
     do
         extension=${file##*.}
     #echo $file
-    if [ $extension == "png" ] || [ $extension == "svg" ];then
+    if [ "$extension" == "png" ] || [ "$extension" == "svg" ];then
         out=$dir/type_${file%.*}.jpeg
-        echo $out
+        echo "$out"
         echo "converting......";
-        convert $file $out
+        convert "$file" "$out"
     fi
   done
 }
@@ -86,15 +85,15 @@ function converting {
 # 重命名
 function rename {
 	  new_name=$1
-	  for file in $dir/*
+	  for file in "$dir"/*
 	    do
 	     extension=${file##*.}
-	     if [ $extension == "jpg" ] || [ $extension == "png" ] || [ $extension == "svg" ];then
-		echo $file
+	     if [ "$extension" == "jpg" ] || [ "$extension" == "png" ] || [ "$extension" == "svg" ];then
+		echo "$file"
 		out=$dir/$new_name.${file##*.}
-		echo $out
+		echo "$out"
 		echo "renaming......";
-		convert $file $out
+		convert "$file" "$out"
 	     fi
 	  done
 }
@@ -103,18 +102,18 @@ function rename {
 #$#表参数个数 -ne：不等于
 while [[ "$#" -ne 0 ]]; do
 	 case $1 in
-	      	 "-c")   compress $2
+	      	 "-c")   compress "$2"
 			 #shift表示参数的左移
 			 shift 2;; 
-		 "-s")   resize $2 
+		 "-s")   resize "$2" 
 			 shift 2;;
 		 "-h")   helps
 			 shift;;
-		 "-a")   add_text $2 $3 $4
+		 "-a")   add_text "$2" "$3" "$4"
 			 shift 4;;	
 		 "-c")   converting
 			 shift;;
-		 "-n")   rename $2
+		 "-n")   rename "$2"
 			 shift 2;; 
 		 "*")    echo "输入错误"
 	esac
