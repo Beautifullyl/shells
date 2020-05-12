@@ -39,7 +39,7 @@ function resize {
 	  extension=${file##*.}
 	     if [ "$extension" == "jpg" ] || [ "$extension" == "png" ] || [ "$extension" == "svg" ];then
 	     out=$dir/resize_$file
-	     echo $file
+	     echo "$file"
 	     echo "resizing......";
              #压缩分辨率语句
 	     convert -sample "$size""%x""$size""%" "$file" "$out"
