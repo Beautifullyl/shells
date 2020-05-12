@@ -37,6 +37,6 @@ if [ "$url" = "-h" ]||[ "$url" = "-help" ];then
 	echo '分别统计不同4XX状态码对应的TOP 10 URL和对应出现的总次数'
 	echo '给定url 指定url,给定URL输出TOP 100访问来源主机 '
 else 
-	{ echo web_log.tsv|awk -F'\t' '{if("$5"=="'"$url"'")print "$1","$5"}'|sort|uniq -c|sort -nr|head -n 100 }>> web_cal_data.txt
+	{  echo web_log.tsv|awk -F'\t' '{if("$5"=="'"$url"'")print "$1","$5"}'|sort|uniq -c|sort -nr|head -n 100  } >> web_cal_data.txt
 fi
 echo "处理完成"
