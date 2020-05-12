@@ -18,7 +18,7 @@ function helps {
 function compress {
 	  quality=$1
 	  #``返回执行后的结果
-	  for file in `ls $dir`
+	  for file in $dir/*
           do
 	  # ##.表示删掉最后一个.及其左边的字符串,即jpg
           extension=${file##*.}
@@ -35,7 +35,7 @@ function compress {
 # 保持原始宽高比的前提下压缩分辨率
 function resize {
 	  size=$1
-	  for file in `ls $dir`
+	  for file in $dir/*
           do
 	  extension=${file##*.}
 	     if [ $extension == "jpg" ] || [ $extension == "png" ] || [ $extension == "svg" ];then
@@ -54,7 +54,7 @@ function add_text {
 	  color=$1
 	  size=$2
 	  text=$3
-	  for file in `ls $dir`
+	  for file in $dir/*
 	  do
 	  extension=${file##*.}
 	    if [ $extension == "jpg" ] || [ $extension == "png" ] || [ $extension == "svg" ];then
@@ -70,7 +70,7 @@ function add_text {
 
 # 图像转为JPEG格式
 function converting {
-  for file in `ls $dir`
+  for file in $dir/*
     do
         extension=${file##*.}
     #echo $file
@@ -86,7 +86,7 @@ function converting {
 # 重命名
 function rename {
 	  new_name=$1
-	  for file in `ls $dir`
+	  for file in $dir/*
 	    do
 	     extension=${file##*.}
 	     if [ $extension == "jpg" ] || [ $extension == "png" ] || [ $extension == "svg" ];then
