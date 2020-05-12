@@ -5,7 +5,17 @@ before_install:
 
 script:
   - ls -l
-  - bash test.sh
+  - shellcheck Image_process.sh
+  - bash Image_process.sh -h
+  - bash Image_process.sh -c 80
+  - bash Image_process.sh -v
+  - bash Image_process.sh -s 50
+  - bash Image_process.sh -a black 60 cuclyl
+  - bash Image_process.sh -h -n 2020
+  - shellcheck worldcup_data_process.sh
+  - bash worldcup_data_process.sh
+  - shellcheck web_server_data.sh
+  - bash web_server_data.sh /images/ksclogo-medium.gif
   - ls -l
   - pwd
 
