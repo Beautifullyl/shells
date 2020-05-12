@@ -111,7 +111,7 @@ while [[ "$#" -ne 0 ]]; do
 			 shift;;
 		 "-a")   add_text "$2" "$3" "$4"
 			 shift 4;;	
-		 "-c")   converting
+		 "-v")   converting
 			 shift;;
 		 "-n")   rename "$2"
 			 shift 2;; 
