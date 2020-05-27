@@ -10,7 +10,9 @@ script:
   - shellcheck nfs_s.sh
   - bash nfs_s.sh
   - shellcheck nfs_c.sh
-  - bash nfs_c.sh 
+  - bash nfs_c.sh
+  - shellcheck dhcp.sh
+  - bash dhcp.sh 
 
 notifications:
   email:
