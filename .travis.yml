@@ -6,6 +6,11 @@ before_install:
 script:
   - ls -l
   - shellcheck vsftpd.sh
+  - bash vsftpd.sh
+  - shellcheck nfs_s.sh
+  - bash nfs_s.sh
+  - shellcheck nfs_c.sh
+  - bash nfs_c.sh 
 
 notifications:
   email:
