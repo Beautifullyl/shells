@@ -20,13 +20,14 @@
 
 # ...........vsftpd
 
-command -v vsftpd > /dev/null
 
-if [[ $? -ne 0 ]];then
+if ! command -v vsftpd > /dev/null
+then
 
   apt install vsftpd -y
 
-	if [[ $? -ne 0 ]];then
+	if ! apt install vsftpd -y
+        then
 		echo "failed to install vsftpd!"
 	        exit
 
@@ -171,8 +172,6 @@ then
 else
 
 		echo "${u_write_path} is already exited!"
-
-fi
 
 fi
 
