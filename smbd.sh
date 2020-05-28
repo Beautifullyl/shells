@@ -9,7 +9,7 @@ apt-get install -y samba
 
 # useradd -M -s /sbin/nologin "$smbuser"
 
-useradd -M -s "$(which nologin)" "$smbuser"
+useradd -M -s "$(command -v  nologin)" "$smbuser"
 
 echo "$smbuser:password" | chpasswd
 
