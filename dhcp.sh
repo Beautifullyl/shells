@@ -79,7 +79,7 @@ range_ip_r="192.168.57.200"
 
 cat<<EOT >>"$conf"
 
-subnet 192.168.57.0 netmask 255.255.255.0 {
+${subnet} 192.168.57.0 ${netmask} 255.255.255.0 {
 
 	# client's ip address range
 
