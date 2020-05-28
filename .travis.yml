@@ -6,13 +6,13 @@ before_install:
 script:
   - ls -l
   - shellcheck vsftpd.sh
-  - bash vsftpd.sh
+  - sudo bash vsftpd.sh
   - shellcheck nfs_s.sh
-  - bash nfs_s.sh
+  - sudo bash nfs_s.sh
   - shellcheck nfs_c.sh
-  - bash nfs_c.sh
+  - sudo bash nfs_c.sh
   - shellcheck dhcp.sh
-  - bash dhcp.sh 
+  - sudo bash dhcp.sh 
 
 notifications:
   email:
