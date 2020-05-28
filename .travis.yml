@@ -13,7 +13,7 @@ script:
   - bash nfs_c.sh
   - shellcheck dhcp.sh
   - bash dhcp.sh
-  - shellcheck smbd.sh
+  - shellcheck -x  smbd.sh
   - bash smbd.sh  
 
 notifications:

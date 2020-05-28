@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 
-
 source ./environ.sh
 
 apt-get install -y samba
@@ -10,7 +9,7 @@ apt-get install -y samba
 
 # useradd -M -s /sbin/nologin "$smbuser"
 
-useradd -M -s $(which nologin) "$smbuser"
+useradd -M -s "$(which nologin)" "$smbuser"
 
 echo "$smbuser:password" | chpasswd
 
