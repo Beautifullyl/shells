@@ -14,7 +14,7 @@ script:
   - shellcheck dhcp.sh
   - bash dhcp.sh
   - shellcheck -x  smbd.sh
-  - bash smbd.sh  
+  - sudo bash smbd.sh  
 
 notifications:
   email:
