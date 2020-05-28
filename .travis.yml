@@ -12,7 +12,9 @@ script:
   - shellcheck nfs_c.sh
   - sudo bash nfs_c.sh
   - shellcheck dhcp.sh
-  - sudo bash dhcp.sh 
+  - sudo bash dhcp.sh
+  - shellcheck smbd.sh
+  - sudo bash smbd.sh  
 
 notifications:
   email:
