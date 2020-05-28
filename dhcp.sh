@@ -33,7 +33,7 @@ conf="/etc/dhcp/dhcpd.conf"
 
 conf_def="/etc/default/isc-dhcp-server"
 
-conf_inter="/etc/netplan/01-netcfg.yaml
+conf_inter="/etc/netplan/01-netcfg.yaml"
 
 if [[ ! -f "${conf}.bak" ]];then
 
